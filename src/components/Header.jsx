@@ -24,6 +24,9 @@ const Header = () => {
 						<Link to="/inicio" className="">
 							<li>Inicio</li>
 						</Link>
+						<Link to="/perfil" className="">
+							<li>perfil</li>
+						</Link>
 						<Link to="/viajes" className="">
 							<li>Viajes</li>
 						</Link>
@@ -32,7 +35,9 @@ const Header = () => {
 						</Link>
 					</ul>
 					<ul>
-						<li>perfil</li>
+						<Link to="/" className="">
+							<li>Ayuda</li>
+						</Link>
 						<Link to="/" className="">
 							<li>Cerrar Sesion</li>
 						</Link>

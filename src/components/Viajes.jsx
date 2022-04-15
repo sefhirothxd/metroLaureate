@@ -53,7 +53,10 @@ const Viajes = () => {
 			<div>
 				{registro.map((e) => {
 					return (
-						<div className=" border-2 rounded-md border-verde-metro py-2 mx-2 px-2 mb-2">
+						<div
+							key={e.id}
+							className=" border-2 rounded-md border-verde-metro py-2 mx-2 px-2 mb-2"
+						>
 							<h2>
 								Estacion: {e.estaSalida} &gt; {e.estaLlegada}
 							</h2>

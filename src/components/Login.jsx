@@ -3,7 +3,7 @@ import React from 'react';
 import laureate from '../assets/img/logo-laureate.png';
 import { Link } from 'react-router-dom';
 const Login = () => {
-	const border = `border-2 border-black border-opacity-50 rounded-sm mb-1`;
+	const border = `border-2 border-black border-opacity-50 rounded-sm mb-1 pl-2`;
 
 	return (
 		<div className=" bg-verde-metro min-h-screen w-full flex justify-center flex-col items-center">
@@ -20,8 +20,8 @@ const Login = () => {
 					<img src={laureate} className="w-40" alt="logo metro" />
 				</picture>
 				<div className=" flex justify-center flex-col gap-2">
-					<input type="text" className={border} placeholder="@upn.pe" />
-					<input type="text" className={border} placeholder="Contraseña" />
+					<input type="text" className={border} placeholder="Correo" />
+					<input type="password" className={border} placeholder="Contraseña" />
 					<div className="flex justify-center">
 						<Link
 							to="/inicio"
