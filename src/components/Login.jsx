@@ -6,7 +6,7 @@ const Login = () => {
 	const border = `border-2 border-black border-opacity-50 rounded-sm mb-1 pl-2`;
 
 	return (
-		<div className=" bg-verde-metro min-h-screen w-full flex justify-center flex-col items-center">
+		<div className=" bg-verde-metro h-probando w-full flex justify-center flex-col items-center">
 			<h1 className="w-full text-white font-bold text-3xl mb-5 text-center">
 				Metro Laureate
 			</h1>
