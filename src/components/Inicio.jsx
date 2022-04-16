@@ -5,7 +5,7 @@ const Inicio = () => {
 	return (
 		<div>
 			<Header />
-			<h1>Inicio</h1>
+			<h1 className="  text-xl text-verde-metro ml-2 font-bold">Inicio</h1>
 			<a
 				href="https://www.lineauno.pe/estaciones/"
 				className="flex justify-center flex-col"
