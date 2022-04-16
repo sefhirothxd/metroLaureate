@@ -8,6 +8,9 @@ module.exports = {
 			height: {
 				'menu-tras': 'cacl(100vh - 28px)',
 			},
+			spacing: {
+				probando: '740px',
+			},
 		},
 	},
 	plugins: [],

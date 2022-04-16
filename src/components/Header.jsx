@@ -21,14 +21,14 @@ const Header = () => {
 		margin: 'mb-4',
 	};
 	return (
-		<div className="bg-verde-metro relative">
+		<div className="bg-verde-metro relative ">
 			<div
 				className={
-					'bg-verde-metro h-screen absolute z-10 w-full transition-all ' +
+					'bg-verde-metro h-probando absolute z-10 w-full transition-all ' +
 					menu.transicion
 				}
 			>
-				<div className="h-full flex flex-col justify-between pt-16 pb-5 pl-4 text-white text-xl">
+				<div className="h-full  flex flex-col justify-between pt-16 pb-5 pl-4 text-white text-xl">
 					<ul>
 						<Link to="/inicio" className="">
 							<li
