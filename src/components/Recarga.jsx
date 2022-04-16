@@ -8,7 +8,7 @@ const Recarga = () => {
 			<Header />
 			<h1 className={fonText + ' text-xl'}>Recarga</h1>
 			<div className=" py-2 mx-2 px-2 mb-2">
-				<h1 className={fonText + ' text-xl'}>Hola, Tello</h1>
+				<h1 className={fonText + ' text-xl'}>Hola, Pedro castillo</h1>
 				<div className="relative">
 					<span className="absolute right-0 -top-7 text-md text-verde-metro font-bold">
 						Credito: S/.70
