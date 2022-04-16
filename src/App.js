@@ -4,6 +4,7 @@ import Inicio from './components/Inicio';
 import Viajes from './components/Viajes';
 import Recarga from './components/Recarga';
 import Perfil from './components/Perfil';
+import Ayuda from './components/Ayuda';
 function App() {
 	return (
 		<div className="App  max-w-sm mx-auto">
@@ -13,6 +14,7 @@ function App() {
 				<Route path="/Viajes" element={<Viajes />} />
 				<Route path="/Recarga" element={<Recarga />} />
 				<Route path="/Perfil" element={<Perfil />} />
+				<Route path="/Ayuda" element={<Ayuda />} />
 			</Routes>
 		</div>
 	);

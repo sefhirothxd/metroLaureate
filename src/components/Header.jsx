@@ -15,7 +15,7 @@ const Header = () => {
 		<div className="bg-verde-metro">
 			<div
 				className={
-					'bg-verde-metro h-screen absolute w-full transition-all ' +
+					'bg-verde-metro h-screen absolute z-10 w-full transition-all ' +
 					menu.transicion
 				}
 			>
@@ -35,7 +35,7 @@ const Header = () => {
 						</Link>
 					</ul>
 					<ul>
-						<Link to="/" className="">
+						<Link to="/ayuda" className="">
 							<li>Ayuda</li>
 						</Link>
 						<Link to="/" className="">
