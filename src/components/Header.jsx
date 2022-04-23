@@ -24,7 +24,7 @@ const Header = () => {
 		<div className="bg-verde-metro relative ">
 			<div
 				className={
-					'bg-verde-metro h-probando absolute z-10 w-full transition-all ' +
+					'bg-verde-metro h-screen absolute z-10 w-full transition-all ' +
 					menu.transicion
 				}
 			>
