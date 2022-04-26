@@ -12,7 +12,7 @@ const Login = () => {
 		if (correo === 'n00221919@upn.pe' && pass === '123456') {
 			navigate('/inicio');
 		} else {
-			alert('La contraeña o el correo no existe');
+			alert('Error. introdusca un password o contraseña correctamente.');
 		}
 	};
 
@@ -32,16 +32,20 @@ const Login = () => {
 				</picture>
 				<div className=" flex justify-center flex-col gap-2">
 					<input
+						value={correo}
 						onChange={(e) => setCorreo(e.target.value)}
-						type="text"
+						type="email"
 						className={border}
 						placeholder="Correo"
+						data-testid="input-correo"
 					/>
 					<input
+						value={pass}
 						onChange={(e) => setPass(e.target.value)}
 						type="password"
 						className={border}
 						placeholder="Contraseña"
+						data-testid="input-pass"
 					/>
 					<div className="flex justify-center">
 						<button
@@ -50,6 +54,12 @@ const Login = () => {
 						>
 							Iniciar session
 						</button>
+						{/* <Link
+							className=" bg-verde-metro text-lg border-white border-2 py-2 px-3 hover:bg-green-700 text-white  font-semibold rounded-md shadow focus:outline-none"
+							to="/inicio"
+						>
+							Iniciar session
+						</Link> */}
 					</div>
 				</div>
 			</div>
