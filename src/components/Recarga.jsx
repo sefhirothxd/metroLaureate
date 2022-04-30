@@ -149,7 +149,7 @@ const Recarga = () => {
 								<div>
 									<p>tarjeta:{r.tarjeta}</p>
 									<p>monto:S/. {r.monto}</p>
-									<p>monto: {r.fecha}</p>
+									<p>fecha: {r.fecha}</p>
 								</div>
 							</div>
 						);
