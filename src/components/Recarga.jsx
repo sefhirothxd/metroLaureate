@@ -59,18 +59,18 @@ const Recarga = () => {
 			}, 2000);
 			return;
 		}
-		let data = new Date();
-		let nuevo = {
-			id: id,
-			tipo: 'Recarga',
-			tarjeta: '1235679',
-			monto: Number(recarga),
-			fecha: data.toLocaleDateString(),
-		};
 
-		const nuevoArry = history;
-		nuevoArry.push(nuevo);
 		if (recarga <= credito) {
+			let data = new Date();
+			let nuevo = {
+				id: id,
+				tipo: 'Recarga',
+				tarjeta: '1235679',
+				monto: Number(recarga),
+				fecha: data.toLocaleDateString(),
+			};
+			const nuevoArry = history;
+			nuevoArry.push(nuevo);
 			setSaldo(saldo + Number(recarga));
 			setCredito(credito - recarga);
 			sethistory(nuevoArry);
@@ -125,7 +125,7 @@ const Recarga = () => {
 						</div>
 						<input
 							onChange={(e) => setRecarga(e.target.value)}
-							className="border-2 border-black border-opacity-50 rounded-sm mb-1 h-12 w-10 pl-2"
+							className="border-2 border-black border-opacity-50 rounded-sm mb-1 h-12 w-14 pl-2"
 							type="number"
 							min={0}
 							max={credito}
