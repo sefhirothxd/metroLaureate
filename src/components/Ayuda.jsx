@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import Select from 'react-select';
+import Mensaje from './Mensaje';
 
 const Ayuda = () => {
+	const [error, setError] = useState(false);
+	const [errorText, setErrorText] = useState('');
+	const [tipo, setTipo] = useState('');
 	const [selectedValue, setSelectedValue] = useState(0);
 	const [selecReclamo, setselecReclamo] = useState(0);
 	const [selecSolicitudes, setselecSolicitudes] = useState(0);
@@ -36,13 +40,21 @@ const Ayuda = () => {
 
 	const mensajes = (e) => {
 		e.preventDefault();
-		alert('Mensaje enviado');
+		setErrorText('Mensaje envio. Gracias por contactarte.');
+		setTipo('correcto');
+		setError(true);
+		setTimeout(() => {
+			setError(false);
+		}, 3000);
 		setSelectedValue(0);
 		setselecReclamo(0);
 		setselecSolicitudes(0);
 	};
 	return (
 		<div>
+			{error ? (
+				<Mensaje setError={setError} Text={errorText} Tipo={tipo} />
+			) : null}
 			<Header />
 			<h1 className="my-4 text-verde-metro  font-bold text-2xl text-center">
 				Ayuda

@@ -2,22 +2,43 @@ import React, { useState } from 'react';
 // import logo from '../assets/img/LineaMetro.svg';
 import laureate from '../assets/img/logo-laureate.png';
 import { useNavigate } from 'react-router-dom';
+import Mensaje from './Mensaje';
 const Login = () => {
+	const [error, setError] = useState(false);
+	const [errorText, setErrorText] = useState('');
+	const [tipo, setTipo] = useState('');
 	const [correo, setCorreo] = useState('');
 	const [pass, setPass] = useState('');
 	let navigate = useNavigate();
 	const border = `border-2 border-black border-opacity-50 rounded-sm mb-1 pl-2`;
 
 	const logeo = () => {
+		// if (correo === '' || pass === '') {
+		// 	setTipo('error');
+		// 	setErrorText('Ingrese su correo y constraseña.');
+		// 	setError(true);
+		// 	setTimeout(() => {
+		// 		setError(false);
+		// 	}, 1000);
+		// 	return;
+		// }
 		if (correo === 'n00221919@upn.pe' && pass === '123456') {
 			navigate('/inicio');
 		} else {
-			alert('Error. introdusca un password o contraseña correctamente.');
+			setTipo('error');
+			setErrorText('La contraseña o el correo son incorrectos');
+			setError(true);
+			setTimeout(() => {
+				setError(false);
+			}, 2000);
 		}
 	};
 
 	return (
-		<div className=" bg-verde-metro h-probando w-full flex justify-center flex-col items-center">
+		<div className=" bg-verde-metro h-probando w-full flex justify-center flex-col items-cente relative">
+			{error ? (
+				<Mensaje setError={setError} Text={errorText} Tipo={tipo} />
+			) : null}
 			<h1 className="w-full text-white font-bold text-3xl mb-5 text-center">
 				Metro Laureate
 			</h1>

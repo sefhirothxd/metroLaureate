@@ -17,14 +17,14 @@ const Header = () => {
 	const [menuOpen, setMenuOpen] = useState(false);
 
 	const menu = {
-		transicion: menuOpen ? 'left-0' : '-left-full opacity-0  ',
+		transicion: menuOpen ? 'left-0' : '-left-full',
 		margin: 'mb-4',
 	};
 	return (
 		<div className="bg-verde-metro relative ">
 			<div
 				className={
-					'bg-verde-metro h-screen absolute z-10 w-full transition-all ' +
+					'bg-verde-metro h-screen absolute z-10 w-full transition-all delay-100 duration-500 ' +
 					menu.transicion
 				}
 			>

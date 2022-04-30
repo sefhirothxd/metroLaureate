@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import Header from './Header';
 import { v4 as uuidv4 } from 'uuid';
+import Mensaje from './Mensaje';
 
 const Recarga = () => {
+	const [error, setError] = useState(false);
+	const [errorText, setErrorText] = useState('');
+	const [tipo, setTipo] = useState('');
 	const [saldo, setSaldo] = useState(30);
-	const [credito, setCredito] = useState(50);
+	const [credito, setCredito] = useState(70);
 	const [recarga, setRecarga] = useState(0);
 	const [history, sethistory] = useState([
 		{
@@ -44,9 +48,17 @@ const Recarga = () => {
 		},
 	]);
 	let id = uuidv4();
-	const fonText = 'my-4 text-verde-metro ml-2 font-bold';
-
+	const fonText = 'my-4 text-white ml-2 font-bold';
 	const prestamoCredito = () => {
+		if (recarga <= 0) {
+			setTipo('error');
+			setErrorText('Digite la cantidad a recargar.');
+			setError(true);
+			setTimeout(() => {
+				setError(false);
+			}, 2000);
+			return;
+		}
 		let data = new Date();
 		let nuevo = {
 			id: id,
@@ -58,29 +70,47 @@ const Recarga = () => {
 
 		const nuevoArry = history;
 		nuevoArry.push(nuevo);
-
 		if (recarga <= credito) {
 			setSaldo(saldo + Number(recarga));
 			setCredito(credito - recarga);
 			sethistory(nuevoArry);
+			setTipo('ok');
+			setErrorText(`Se realizo la recarga de S/.${recarga}.`);
+			setError(true);
+			setTimeout(() => {
+				setError(false);
+			}, 2000);
 		} else {
-			alert('No tiene credito suficiente');
+			setTipo('error');
+			setErrorText('La cantidad es superior al monto maximo.');
+			setError(true);
+			setTimeout(() => {
+				setError(false);
+			}, 2000);
 		}
 		console.log('funciono', recarga);
 	};
 
 	return (
 		<div>
+			{error ? (
+				<Mensaje setError={setError} Text={errorText} Tipo={tipo} />
+			) : null}
 			<Header />
-			<h1 className={fonText + ' text-xl'}>Recarga</h1>
-			<div className=" py-2 mx-2 px-2 mb-2">
+			<h1 className="mt-2 mb-4 ml-2 font-bold text-xl text-verde-metro">
+				Recarga
+			</h1>
+			<div className=" py-2 mx-2 px-2 mb-2 bg-gradient-to-r from-verde-alter to-verde-metro rounded-lg">
 				<h1 className={fonText + ' text-xl'}>Hola, Pedro castillo</h1>
 				<div className="relative">
-					<span className="absolute right-0 -top-7 text-md text-verde-metro font-bold">
+					<span className="absolute right-0 -top-7 text-md text-white font-bold">
 						Credito: S/.{credito}
 					</span>
-					<div className="border-2 rounded-md h-3 border-verde-metro overflow-hidden">
-						<div className="bg-verde-metro h-3 w-1/3"></div>
+					<div className="border-2 rounded-md h-3 border-text-gray-300 overflow-hidden">
+						<div
+							className="bg-white h-3 transition-all delay-200 duration-1000 "
+							style={{ width: saldo + '%' }}
+						></div>
 					</div>
 					<p className={fonText + ' text-md'}>Saldo: S/.{saldo}</p>
 					<div className="flex justify-between">
@@ -88,11 +118,14 @@ const Recarga = () => {
 							onClick={prestamoCredito}
 							className=" bg-verde-metro text-lg border-white border-2 py-2 px-3 hover:bg-green-700 text-white  font-semibold rounded-md shadow focus:outline-none"
 						>
-							Recarga
+							Recargar
 						</button>
+						<div>
+							<p className={fonText + ' text-md'}>ingrese la cantidad: </p>
+						</div>
 						<input
 							onChange={(e) => setRecarga(e.target.value)}
-							className="border-2 border-black border-opacity-50 rounded-sm mb-1 pl-2"
+							className="border-2 border-black border-opacity-50 rounded-sm mb-1 h-12 w-10 pl-2"
 							type="number"
 							min={0}
 							max={credito}
@@ -100,8 +133,10 @@ const Recarga = () => {
 					</div>
 				</div>
 			</div>
-			<div className="mt-8">
-				<h2 className={fonText + ' text-xl'}>Historial de Recargas</h2>
+			<div className="mt-4">
+				<h2 className="mt-2 mb-4 ml-2 font-bold text-xl text-verde-metro">
+					Historial de Recargas
+				</h2>
 				<hr className="text-verde-metro" />
 				<div>
 					{history.map((r) => {
